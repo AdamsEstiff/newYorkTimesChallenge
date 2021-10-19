@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        //aqui traigo a mi tarea para ser utilizada
         Commands\newsTask::class
     ];
 
@@ -24,6 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //aca esta la parte para que se haga la tarea de guardar cada minuto
         $schedule->command('new:task')->everyMinute();
     }
 

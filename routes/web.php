@@ -14,5 +14,5 @@
 //
 Use App\Http\Controllers\DashController;
 use Illuminate\Support\Facades\Route;
-
+//estoy enrutando el proyecto a la unica vista que tiene
 Route::get('/', [DashController::class, 'index']);

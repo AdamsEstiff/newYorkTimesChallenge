@@ -3,26 +3,54 @@ body {
   font-family: "Helvetica" !important;
 }
 
+.my-input {
+  border-radius: 25px !important;
+}
+
 .notice_card {
-  height: 600px !important;
+  max-height: 600px !important;
   overflow: auto !important;
 }
 
 .button-position {
-  float: right;
+  float: right !important;
 }
 
 .abstract {
   color: #6b7280;
 }
 
+.nofound {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
 .image {
+  display: block;
+  margin: auto;
   width: 530px;
 }
 
 .title {
   font-weight: bolder;
   color: black;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4em;
 }
 
 .mt-1 {
@@ -39,4 +67,20 @@ body {
 
 .mt-4 {
   margin-top: 4em;
+}
+
+@media (max-width:650px) {
+  .image {
+    width: 400px;
+  }
+}
+@media (max-width:530px) {
+  .image {
+    width: 300px;
+  }
+}
+@media (max-width:425px) {
+  .image {
+    width: 175px;
+  }
 }

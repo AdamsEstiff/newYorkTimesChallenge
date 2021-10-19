@@ -16,8 +16,8 @@ class DashController extends Controller
      */
     public function index()
     {
+        //aqui renderizo la vista y envio los datos de la base de datos
         $notices = Notice::all();
-        Log::debug($notices);
         return Inertia::render('Dashboard/Index',compact('notices'));
     }
 

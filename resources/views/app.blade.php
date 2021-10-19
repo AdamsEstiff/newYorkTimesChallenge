@@ -15,6 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- aqui traje para poder utilizar fontawesome aunque no lo termine utilizando -->
+
     <script src="https://kit.fontawesome.com/26b9f3c10d.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,6 +27,7 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 <body>
+<!--por aqui inicia el proyecto en si-->
 @inertia
 </body>
 </html>

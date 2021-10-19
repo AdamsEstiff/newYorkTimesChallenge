@@ -40,15 +40,22 @@ class newsTask extends Command
      */
     public function handle()
     {
+        //esta fue la parte que mas me costo
+        //la api me parecio ENORME y muchas dimensiones, pero al final lo logre :D
+        //aca traigo la api
         $response = Http::get('https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=JBArrZG9G3ZZfeMou7zvF7ViGsGIucU2');
+        //le doy formato json para que este mas legible
         $response->json();
+        //comienzo a seleccionar un elemento del arreglo y se lo meto a otro
         $news=$response['results'];
-        $count=0;
-//        Log::debug($response);
+        //comienzo a embarcarme mas dentro del arreglo que trajo la api
         foreach ($news as $object){
+            //selecciono una parte llamada media, para poder ingresar a las fotos de la api
             $media=$object['media'];
+            //aca me aseguro de que no guarde una y otra vez los mismos datos
             $unsave= Notice::where('id_news',$object['id'])->first();
             if(empty($unsave)){
+                //si los datos no son repetidos procede a guardar
                 $save=new Notice();
                 $save->id_news=$object['id'];
                 $save->title=$object['title'];

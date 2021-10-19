@@ -13,8 +13,10 @@ Vue.use(VueResource);
 Vue.use(InertiaApp);
 Vue.use(ElementUI);
 Vue.use(InertiaApp);
+//en la parte de arriba traigo todos los elementos necesarios para correr la aplicacion web
 
 
+// aqui se dice donde se van a correr los los archivos y de que forma, basicamente aqui se le dice que hacer al script
 const app = document.getElementById('app');
 app.setAttribute(':class',"{'loaded': loaded}");
 new Vue({

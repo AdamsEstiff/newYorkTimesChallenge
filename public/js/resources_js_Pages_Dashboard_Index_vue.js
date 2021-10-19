@@ -36,15 +36,94 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  //aca esta la informacion que traigo de bases de datos
   props: ['notices'],
   data: function data() {
     return {
-      news: []
+      //por aqui los datos por asi llamarlos, "locales"
+      news: [],
+      search: ''
     };
   },
-  mounted: function mounted() {}
+  //aca el area para los metodos
+  methods: {
+    //aca el metodo searching que se activa cada vez alguien teclea algo en el input search
+    searching: function searching() {
+      var _this = this;
+
+      //lo que hace es filtrar el array notice, lo que se digite en search, metiendolo en el array new y si no hay nada, pues elimina dicho array
+      if (this.search.length > 0) {
+        //aca filtra a notices, y lo mete en news
+        this.news = this.notices.filter(function (data) {
+          return !_this.search || data.title.toLowerCase().includes(_this.search.toLowerCase());
+        });
+      } else {
+        //aca se elimina los datos de news para hacer una nueva busqueda limpia
+        this.news = [];
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -137,65 +216,244 @@ var render = function() {
     "el-row",
     { attrs: { gutter: 24 } },
     [
+      _c("el-col", { attrs: { span: 12 } }, [
+        _c("a", { attrs: { href: "https://www.nytimes.com" } }, [
+          _c("img", {
+            attrs: {
+              src:
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/512px-The_New_York_Times_Logo.svg.png"
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "el-col",
+        { attrs: { span: 12 } },
+        [
+          _c("el-col", { staticClass: "button-position", attrs: { span: 6 } }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.search,
+                  expression: "search"
+                }
+              ],
+              staticClass:
+                "mt-1 el-input el-input__inner my-input el-icon-search",
+              attrs: {
+                id: "search",
+                placeholder: "Buscar",
+                icon: "el-icon-search"
+              },
+              domProps: { value: _vm.search },
+              on: {
+                keyup: _vm.searching,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.search = $event.target.value
+                }
+              }
+            })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c(
         "el-col",
         { attrs: { span: 24 } },
         [
-          _c(
-            "el-card",
-            _vm._l(_vm.notices, function(notice) {
-              return _c(
-                "span",
-                [
-                  _c(
-                    "el-col",
-                    { attrs: { span: 8 } },
+          _vm.search.length === 0
+            ? _c(
+                "el-card",
+                { staticClass: "mb-1" },
+                _vm._l(_vm.notices, function(notice) {
+                  return _c(
+                    "span",
                     [
-                      _c("el-card", { staticClass: "notice_card mt-1" }, [
-                        _c(
-                          "div",
-                          { attrs: { slot: "header" }, slot: "header" },
-                          [
-                            _c("img", {
-                              staticClass: "image",
-                              attrs: { src: notice.image }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("h1", { staticClass: "title" }, [
-                          _vm._v(_vm._s(notice.title))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "abstract" }, [
-                          _vm._v(_vm._s(notice.abstract))
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "button-position",
-                            attrs: { href: notice.url }
-                          },
+                      _c(
+                        "el-col",
+                        {
+                          attrs: {
+                            span: 8,
+                            xl: 8,
+                            lg: 8,
+                            ms: 12,
+                            sm: 24,
+                            xs: 24
+                          }
+                        },
+                        [
+                          _c(
+                            "el-card",
+                            { staticClass: "notice_card mt-1 mb-1" },
+                            [
+                              _c(
+                                "div",
+                                { attrs: { slot: "header" }, slot: "header" },
+                                [
+                                  notice.image.length === 0
+                                    ? _c("span", [
+                                        _c("img", {
+                                          staticClass: "image",
+                                          attrs: {
+                                            src:
+                                              "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png"
+                                          }
+                                        })
+                                      ])
+                                    : _c("span", [
+                                        _c("img", {
+                                          staticClass: "image",
+                                          attrs: { src: notice.image }
+                                        })
+                                      ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("h1", { staticClass: "title" }, [
+                                _vm._v(_vm._s(notice.title))
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "abstract" }, [
+                                _vm._v(_vm._s(notice.abstract))
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "button-position mb-2",
+                                  attrs: { href: notice.url }
+                                },
+                                [
+                                  _c(
+                                    "el-button",
+                                    { attrs: { icon: "el-icon-edit" } },
+                                    [_vm._v("Leer más")]
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                }),
+                0
+              )
+            : _c("el-card", { staticClass: "mb-1" }, [
+                _vm.news.length !== 0
+                  ? _c(
+                      "span",
+                      _vm._l(_vm.news, function(notice) {
+                        return _c(
+                          "span",
                           [
                             _c(
-                              "el-button",
-                              { attrs: { icon: "el-icon-edit" } },
-                              [_vm._v("Leer más")]
+                              "el-col",
+                              {
+                                attrs: {
+                                  span: 8,
+                                  xl: 8,
+                                  lg: 8,
+                                  ms: 12,
+                                  sm: 24,
+                                  xs: 24
+                                }
+                              },
+                              [
+                                _c(
+                                  "el-card",
+                                  { staticClass: "notice_card mt-1 mb-2" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        attrs: { slot: "header" },
+                                        slot: "header"
+                                      },
+                                      [
+                                        notice.image.length === 0
+                                          ? _c("span", [
+                                              _c("img", {
+                                                staticClass: "image",
+                                                attrs: {
+                                                  src:
+                                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png"
+                                                }
+                                              })
+                                            ])
+                                          : _c("span", [
+                                              _c("img", {
+                                                staticClass: "image",
+                                                attrs: { src: notice.image }
+                                              })
+                                            ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("h1", { staticClass: "title" }, [
+                                      _vm._v(_vm._s(notice.title))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "abstract" }, [
+                                      _vm._v(_vm._s(notice.abstract))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "button-position mb-1",
+                                        attrs: { href: notice.url }
+                                      },
+                                      [
+                                        _c(
+                                          "el-button",
+                                          { attrs: { icon: "el-icon-edit" } },
+                                          [_vm._v("Leer más")]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
                             )
                           ],
                           1
                         )
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            }),
-            0
-          )
+                      }),
+                      0
+                    )
+                  : _c(
+                      "span",
+                      [
+                        _c(
+                          "el-row",
+                          { attrs: { span: 24, gutter: 24 } },
+                          [
+                            _c("el-col", { attrs: { span: 24 } }, [
+                              _c("h1", { staticClass: "mt-2 mb-2 nofound" }, [
+                                _vm._v("No se encontraron datos que coincidan")
+                              ])
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+              ])
         ],
         1
       )

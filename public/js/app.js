@@ -4811,7 +4811,9 @@ element_ui_lib_locale__WEBPACK_IMPORTED_MODULE_5__["default"].use(element_ui_lib
 vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vue_resource__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.InertiaApp);
 vue__WEBPACK_IMPORTED_MODULE_6__["default"].use((element_ui__WEBPACK_IMPORTED_MODULE_2___default()));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.InertiaApp);
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.InertiaApp); //en la parte de arriba traigo todos los elementos necesarios para correr la aplicacion web
+// aqui se dice donde se van a correr los los archivos y de que forma, basicamente aqui se le dice que hacer al script
+
 var app = document.getElementById('app');
 app.setAttribute(':class', "{'loaded': loaded}");
 new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
@@ -82361,7 +82363,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + ".js?id=" + "8049bc5a78a8c471d48e" + "";
+/******/ 			return "js/" + chunkId + ".js?id=" + "477178be4a51d51df1cd" + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
