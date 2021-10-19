@@ -17,23 +17,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['notices'],
   data: function data() {
     return {
-      news: [],
-      notice: {
-        image: ''
-      }
+      news: []
     };
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=JBArrZG9G3ZZfeMou7zvF7ViGsGIucU2').then(function (response) {
-      return _this.news = response.data.results;
-    });
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -122,7 +133,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "el-row",
+    { attrs: { gutter: 24 } },
+    [
+      _c(
+        "el-col",
+        { attrs: { span: 24 } },
+        [
+          _c(
+            "el-card",
+            _vm._l(_vm.notices, function(notice) {
+              return _c(
+                "span",
+                [
+                  _c(
+                    "el-col",
+                    { attrs: { span: 8 } },
+                    [
+                      _c("el-card", { staticClass: "notice_card mt-1" }, [
+                        _c(
+                          "div",
+                          { attrs: { slot: "header" }, slot: "header" },
+                          [
+                            _c("img", {
+                              staticClass: "image",
+                              attrs: { src: notice.image }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("h1", { staticClass: "title" }, [
+                          _vm._v(_vm._s(notice.title))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "abstract" }, [
+                          _vm._v(_vm._s(notice.abstract))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "button-position",
+                            attrs: { href: notice.url }
+                          },
+                          [
+                            _c(
+                              "el-button",
+                              { attrs: { icon: "el-icon-edit" } },
+                              [_vm._v("Leer más")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
