@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,6 +13,22 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    .sass('resources/sass/app.scss', 'public/css')
+    .vue()
+    .webpackConfig({
+
+        output: {
+            chunkFilename: 'js/[name].js?id=[chunkhash]',
+            sourceMapFilename: "index.js.map"
+        },
+        resolve: {
+            alias: {
+                vue$: 'vue/dist/vue.runtime.esm.js',
+                '@': path.resolve('resources/js'),
+            },
+        },
+    })
+    .babelConfig({
+        plugins: ['@babel/plugin-syntax-dynamic-import'],
+    })
+    .version();
