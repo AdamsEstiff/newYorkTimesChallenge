@@ -82363,7 +82363,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + ".js?id=" + "477178be4a51d51df1cd" + "";
+/******/ 			return "js/" + chunkId + ".js?id=" + "888b8b7e4fb542e28673" + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	

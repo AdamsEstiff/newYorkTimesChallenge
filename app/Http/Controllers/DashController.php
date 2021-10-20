@@ -18,7 +18,7 @@ class DashController extends Controller
     {
         //aqui renderizo la vista y envio los datos de la base de datos
         $notices = Notice::all();
-        return Inertia::render('Dashboard/Index',compact('notices'));
+        return Inertia::render('Dashboard/Index', compact('notices'));
     }
 
     /**
@@ -26,6 +26,15 @@ class DashController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $searchNotices = Notice::where('title', 'Like', "%$search%")->get();
+        return response()->json([
+            "searchNotices" => $searchNotices
+        ]);
+    }
+
     public function create()
     {
         //
